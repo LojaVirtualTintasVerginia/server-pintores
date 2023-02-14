@@ -10,6 +10,10 @@ const connection = knex({
         }
       : env.DATABASE_URL,
   useNullAsDefault: true,
+  migrations: {
+    extension: 'ts',
+    directory: './src/database/migrations',
+  },
 });
 
 export default connection;
