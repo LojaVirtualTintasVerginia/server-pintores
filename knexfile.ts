@@ -1,15 +1,19 @@
-import path from 'path';
+import { env } from './src/env'
 
 module.exports = {
-  client: 'sqlite3',
-  connection: {
-    filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite'),
-  },
-  migrations: {
-    directory: path.resolve(__dirname, 'src', 'database', 'migrations')
-  },
+  client: env.DATABASE_CLIENT,
+  connection:
+    env.DATABASE_CLIENT === 'sqlite'
+      ? {
+          filename: env.DATABASE_URL,
+        }
+      : env.DATABASE_URL,
+      migrations: {
+        extension: 'ts',
+        directory: './src/database/migrations',
+      },
   seeds: {
-    directory: path.resolve(__dirname, 'src', 'database', 'seeds')
+    directory: './src/database/seeds',
   },
   useNullAsDefault: true,
 };
