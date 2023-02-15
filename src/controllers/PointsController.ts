@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { randomUUID } from 'node:crypto'
 import knex from '../database/connection';
 
 class PointsController {
@@ -111,7 +110,6 @@ class PointsController {
     const trx = await knex.transaction();
    
     const point = {
-      id: randomUUID(),
       image: request.files['image'][0].filename,
       obra: request.files['obra'][0].filename,
       obra1: request.files['obra1'][0].filename,
@@ -130,9 +128,7 @@ class PointsController {
     };
     console.log(request.files['image'][0].filename, "Aqui")
 
-    const insertedIds = await trx('points').insert(
-      point
-    );
+    const insertedIds = await trx('points').insert(point);
   
     const point_id = insertedIds[0];
   
