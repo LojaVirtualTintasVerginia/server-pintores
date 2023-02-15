@@ -2,7 +2,7 @@ import { Knex } from 'knex'
 
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('points', (table) => {
-    table.increments('id').primary()
+    table.string('id')
     table.string('image').notNullable()
     table.string('obra').notNullable()
     table.string('obra1').notNullable()
