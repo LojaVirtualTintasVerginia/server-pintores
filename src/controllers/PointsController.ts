@@ -126,7 +126,6 @@ class PointsController {
       link_instagram,
       ativo
     };
-    console.log(request.files['image'][0].filename, "Aqui")
 
     const insertedIds = await trx('points').insert(point);
   
