@@ -20,7 +20,7 @@ class PointsController {
     const serializedPoints = points.map(point => {
       return {
         ...point,
-        image_url: `192.168.1.115:3001/uploads/${point.image}`,
+        image_url: `https://server-pintores.onrender.com/uploads/${point.image}`,
       };
     });
     
@@ -36,7 +36,7 @@ class PointsController {
         name: pintor.name,
         image: pintor.image,
         city: pintor.city,
-        image_url: `192.168.1.115:3001/${pintor.image}`,
+        image_url: `https://server-pintores.onrender.com/uploads/${pintor.image}`,
       
         ativo: pintor.ativo
       };
@@ -75,12 +75,12 @@ class PointsController {
       return response.status(400).json({ message: 'Pintores nao encontrados.' });
     }
 
-    const serializedPoint = { 
+    const serializedPoint = {
       ...point,
-      image_url: `192.168.1.115:3001/uploads/${point.image}`,
-      obra_url: `192.168.1.115:3001/uploads/${point.obra}`,
-      obra1_url: `192.168.1.115:3001/uploads/${point.obra1}`,
-      obra2_url: `192.168.1.115:3001/uploads/${point.obra2}`,
+      image_url: `https://server-pintores.onrender.com/uploads/uploads/${point.image}`,
+      obra_url: `https://server-pintores.onrender.com/uploads/uploads/${point.obra}`,
+      obra1_url: `https://server-pintores.onrender.com/uploads/uploads/${point.obra1}`,
+      obra2_url: `https://server-pintores.onrender.com/uploads/uploads/${point.obra2}`,
     };
 
     const items = await knex('items')
