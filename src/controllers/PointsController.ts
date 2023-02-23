@@ -127,7 +127,7 @@ class PointsController {
       ativo
     };
 
-    const insertedIds = await trx('points').insert(point);
+    const insertedIds = await trx("points").insert(point).returning("id");
   
     const point_id = insertedIds[0];
   
