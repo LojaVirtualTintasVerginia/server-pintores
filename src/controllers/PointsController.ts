@@ -124,7 +124,7 @@ class PointsController {
       uf,
       link_facebook,
       link_instagram,
-      ativo
+      
     };
 
     const insertedIds = await trx("points").insert(point).returning("id");

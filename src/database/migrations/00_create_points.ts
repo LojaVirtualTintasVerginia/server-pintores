@@ -17,7 +17,6 @@ export async function up(knex: Knex): Promise<void> {
     table.string('uf', 2).notNullable()
     table.string('link_facebook').notNullable()
     table.string('link_instagram').notNullable()
-    table.boolean('ativo').notNullable()
   })
 }
 
